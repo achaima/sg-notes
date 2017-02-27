@@ -72,3 +72,27 @@ if (dayOfWeek.toUpperCase() === 'THURSDAY' || dayOfWeek.toUpperCase() === 'FRIDA
 } else {
   console.log('Bummer :-(');
 }
+
+// useful way of debugging
+console.log('---truthy/falsey:');
+var truthythings=[1,0,'something', '',-1,[], null, NaN, 'false','0'];
+
+for (var i = 0 ; i < truthythings.length; i++) {
+  console.log('  element', i, 'is:', truthythings[i])
+if  (truthythings[i]) {
+  console.log(' ',truthythings[i], '---> truthy');
+} else {
+  console.log(' ',truthythings[i], '----> falsey');
+}
+}
+// 0, empty string, null an undefined is counted as falsey
+
+
+
+var yourName = prompt ("What is your name?");
+
+if (yourName) {
+  alert ('Nice one, ' + yourName);
+} else {
+  alert ('Not sure what your name!');
+}
