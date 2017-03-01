@@ -11,7 +11,7 @@ var person2 = {
   firstName: 'Aretha',
   lastName: 'Franklin',
   email: 'ms.legend@example.com',
-  age:29
+  age: 29
 };
 
 var person3 = {
@@ -29,15 +29,10 @@ for (var i = 0; i < people.length ; i++ ) {
 if ({} === {}) {
   console.log('yep that\'s right');
 } else {
-  console.log('That\'s not right')
-};
+  console.log('That\'s not right');
+}
 
 
-if ({} == {}) {
-  console.log('yep that\'s right');
-} else {
-  console.log('That\'s not right')
-};
 
 //It's not right because {} is shorthand for new object so in this case we have two new different object.
 //Everytime you put this {} it's a different new object
@@ -50,7 +45,7 @@ p.lastName = 'Flinstone';
 
 //FUNCTION
 
-console.log ('---Functions');
+console.log('---Functions');
 
 function createPerson (firstName, lastName, email, age) {
   var newPerson = {
@@ -70,10 +65,9 @@ function createPerson (firstName, lastName, email, age) {
 
 
 var harald = createPerson('Harald','Kumar', 'h.kumar@example.com',15);
-console.log ('newPerson full name:', harald.fullName());
+console.log('newPerson full name:', harald.fullName());
 var tola = createPerson('Tola', 'Olaoke', 'tolaoka@spartaglobal.co', 21);
 var asma = createPerson('Asma','Chaima', 'achaima@spartaglobal',21);
-var asmaa = createPerson('Asmaa','Chaima', 'aachaima@spartaglobal',21);
 
 people = [harald, tola, asma ];
 //should not include var because it's already been defined but it's going to overwrite what was previously in the people variable.
@@ -83,10 +77,10 @@ function isOldEnough (age) {
 }
 
 if (isOldEnough(harald.age)) {
-  console.log ('come in');
+  console.log('come in');
 } else {
-  console.log ('come back when you\'re older');
-};
+  console.log('come back when you\'re older');
+}
 
 // for (i = 0; i < people.length ; i++) {
 // console.log(people[i].fullName()), (isOldEnough(people[i].age)) ? 'is old enough' : 'is NOT old enough');
@@ -109,7 +103,7 @@ if (isOldEnough(harald.age)) {
 //create an object that has methods in it
 
 
-console.log ('--- 00 Javascript:');
+console.log('--- 00 Javascript:');
 
 
 function Circle (radius) {
@@ -133,7 +127,7 @@ Circle.PI = 22/7; //normally would use Math.PI, using this for demo purposes on 
 // add it to the prototype
 Circle.prototype.area = function () {
   return Circle.PI * this.radius * this.radius;
-}
+};
 
 var coin = new Circle(1.2);
 var plate = new Circle(7);
@@ -145,10 +139,10 @@ var circles = [coin, plate];
 //Method is a function that can be called within circle. With Javascript you would refer to it as function in practice
 
 for (i = 0; i < circles.length; i++) {
-console.log('Radius is:', circles[i].radius);
-console.log ('Circumference is:', circles[i].circumference());
-console.log ('Area is:', circles[i].area());
-};
+  console.log('Radius is:', circles[i].radius);
+  console.log('Circumference is:', circles[i].circumference());
+  console.log('Area is:', circles[i].area());
+}
 
 // INSTANT VARIABLE
 //plate, coin, circle are referred to as instance properties.
