@@ -1,5 +1,6 @@
 console.log('in main.js');
 
+//The concept here is that you are waiting for the DOM to be ready for the rest of Javascript
 document.addEventListener('DOMContentLoaded', function () {
 
   console.log(document); //This puts the whole HTML structure in the inspect console
@@ -59,8 +60,4 @@ document.addEventListener('DOMContentLoaded', function () {
     pickMeButton.innerHTML = 'Clicked!';
   });
 
-
-
-
 });
-//The concept here is that you are waiting for the DOM to be ready for the rest of Javascript
