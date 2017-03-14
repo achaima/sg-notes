@@ -3,6 +3,12 @@ var router = express.Router();
 var userController =require('../controllers/users-controller');
 
 
+router.get('/', function(req, res){
+  res.render('index', {
+    title: 'Home'
+  });
+});
+
 router.route('/users')
  .get(userController.index)
  .post(userController.create);
