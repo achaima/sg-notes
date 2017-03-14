@@ -65,8 +65,40 @@ function editUser (req, res) {
 }
 
 //Action: update
+//get the user id from paramsretrieve index of this user from users array
+//if user does not exists
+// set status to 404
+// set html with error message
+// else
+// set status to 200
+// update existing user with properties passed in
+//set html
+// end if
 function updateUser (req, res) {
-  res.status(200).send('<h1>Action: update</h1>');
+  var userId = req.params.id;
+  var userIndex = findUserIndexById(userId);
+  var user;
+  var status;
+  var html = '<h1>Update user' + userId + '</h1>';
+
+
+  if (userIndex !== -1) {
+    //found the user
+    user = users[userIndex];
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.email = req.body.email;
+    html += '<p>user updated</p>';
+    status = 200;
+  } else {
+    //user with :id does not exist
+    html += '<em>User not found with id ' + userId + '</em>';
+    status = 404;
+  }
+
+
+
+  res.status(status).send(html);
 }
 
 //Action: show
@@ -114,6 +146,7 @@ function destroyUser (req, res) {
   }
   res.status(status).send(html);
 }
+
 
 module.exports = {
   index: indexUsers,

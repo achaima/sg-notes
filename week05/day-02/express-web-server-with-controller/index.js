@@ -4,8 +4,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = 3000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true})); //for parsing application
 
 app.use(router);
 
