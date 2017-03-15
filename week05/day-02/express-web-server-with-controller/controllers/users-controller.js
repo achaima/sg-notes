@@ -35,20 +35,14 @@ function indexUsers (req, res) {
   });
 }
 
-//   var html = '<h1>List of users</h1>';
-//
-//   html += '<ul>';
-//   for (var i = 0; i < users.length; i++) {
-//     html += '<li><a href="/users/' + users[i].id + '">' + users[i].firstName + ' ' + users[i].lastName + ' (' + users[i].email + ')' + '</a></li>';
-//   }
-//   html += '</ul>';
-//   res.status(200).send(html);
-// }
 
 //Action: new
 function newUser (req, res) {
-  res.status(200).send('<h1>Action: new</h1>');
+  res.render('users/new', {
+    title: 'New user'
+  });
 }
+
 
 //Action: create
 function createUser (req, res) {
@@ -58,35 +52,27 @@ function createUser (req, res) {
     lastName: req.body.lastName,
     email: req.body.email
   };
-
   users.push(newUser);
-  console.log('req.body: ', req.body);
-  res.status(200).send('<h1>Action: create new user with id ' + newUser.id + '</h1>');
+  res.redirect('/users');
 }
 
-
-//Action: edit
-function editUser (req, res) {
-  res.status(200).send('<h1>Action: edit</h1>');
-}
+// //Action: edit
+// function editUser (req, res) {
+//   var userId = req.params.id;
+//   var user;
+//   res.status(status).render('users/edit', {
+//     title: 'Edit user ' + userId,
+//     user: user
+//   });
+// }
 
 //Action: update
-//get the user id from paramsretrieve index of this user from users array
-//if user does not exists
-// set status to 404
-// set html with error message
-// else
-// set status to 200
-// update existing user with properties passed in
-//set html
-// end if
 function updateUser (req, res) {
   var userId = req.params.id;
   var userIndex = findUserIndexById(userId);
   var user;
-  var status;
+  var json;
   var html = '<h1>Update user' + userId + '</h1>';
-
 
   if (userIndex !== -1) {
     //found the user
@@ -94,17 +80,12 @@ function updateUser (req, res) {
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
     user.email = req.body.email;
-    html += '<p>user updated</p>';
-    status = 200;
+    res.redirect('/users');
   } else {
     //user with :id does not exist
-    html += '<em>User not found with id ' + userId + '</em>';
-    status = 404;
+    json = {error: 'Could not find user with id ' + userId};
+    res.status(404).send(html);
   }
-
-
-
-  res.status(status).send(html);
 }
 
 //Action: show
@@ -113,8 +94,6 @@ function showUser (req, res) {
   var userIndex;
   var user;
   var status;
-  var html = '';
-
 
   userIndex = findUserIndexById(userId);
 
@@ -135,7 +114,6 @@ function showUser (req, res) {
 function destroyUser (req, res) {
   var userId = req.params.id;
   var userIndex;
-  var status;
   var html = '<h1>Delete user ' + userId + '</h1>';
 
   userIndex = findUserIndexById(userId);
@@ -143,14 +121,12 @@ function destroyUser (req, res) {
   if (userIndex !== -1) {
     // user exists
     users.splice(userIndex, 1);
-    status = 200;
-    html += 'User with id ' + userId + ' deleted';
+    res.redirect('/users');
   } else {
     // trying to delete non-existent user
-    status = 404;
     html += '<em>User with id ' + userId + ' does not exist; cannot delete</em>';
+    res.status(404).send(html);
   }
-  res.status(status).send(html);
 }
 
 
