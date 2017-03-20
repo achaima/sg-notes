@@ -20,6 +20,12 @@ function getFirstUserIdFromUserListHTML(html) {
   return pathElements[2];
 }
 
+function generateUniqueFirstName() {
+  return 'firstName' + Math.random();
+}
+console.log('RANDOMN FIRST NAME: ', generateUniqueFirstName);
+
+//----------------------------------------------------------------------------
 describe('Users', function () {
   beforeEach(function () {
     request = chai.request(app);
@@ -115,5 +121,74 @@ describe('Users', function () {
     });
   });
 
+//----------------------CREATE TESTING---------------------------------------
+
+  console.log('CREATE TESTING');
+  //KW:only - want to focus on this subset of tests
+  describe('POST', function () {
+    it('should return error when no firstName blank', function (done) {
+      request
+      .post('/users')
+      .set('content-type', 'application/x-www-form-urlencoded') // set the form encoding type
+      .send({firstName: '', email: 'testpostEmail'})
+      .end(function(err, res) {
+        var jsonResponse = JSON.parse(res.text);
+
+        res.should.have.status(400);
+        expect(jsonResponse).to.be.an('array');
+        expect(jsonResponse.length).to.equal(1);
+        console.log('JSONRESPONSE: ', jsonResponse[0]);
+        expect(jsonResponse[0].path).to.equal('firstName');
+        // console.log('RESPONSE: ', expect(jsonResponse[0].path).to.equal('firstName'));
+        done();
+      });
+    });
+    it('should return error when no email provided', function (done) {
+      request
+      .post('/users')
+      .set('content-type', 'application/x-www-form-urlencoded') // set the form encoding type
+      .send({firstName: 'testpostFirstName', email: ''})
+      .end(function(err, res) {
+        var jsonResponse = JSON.parse(res.text);
+
+        res.should.have.status(400);
+        expect(jsonResponse).to.be.an('array');
+        expect(jsonResponse.length).to.equal(1);
+        console.log('JSONRESPONSE: ', jsonResponse[1]);
+        expect(jsonResponse[0].path).to.equal('email');
+
+        //checking for 4 things:
+        //1. status code
+        //2. that JSON response is an array
+        //3. Array should only have length of 1
+        //4. should be equal to value defined to property to get error
+        res.should.have.status(400);
+        done();
+      });
+    });
+    it.only('should create new user when input data is valid', function (done) {
+      var testFirstName = generateUniqueFirstName();
+      var firstNameRegExp = new RegExp(testFirstName);
+      request
+      .post('/users')
+      .set('content-type', 'application/x-www-form-urlencoded') // set the form encoding type
+      .send({firstName: testFirstName, email: 'testEmail'})
+      .end(function(err, res) {
+        res.should.have.status(200);
+        res.text.should.match(firstNameRegExp);
+
+        // console.log('Should match:',res.text.should.match(firstNameRegExp);
+        // console.log('RESTEXT:', res.text);
+        done();
+      });
+    });
+  });
+
+
+
+
+
+
+//-----------------------------------------------------
 
 });
