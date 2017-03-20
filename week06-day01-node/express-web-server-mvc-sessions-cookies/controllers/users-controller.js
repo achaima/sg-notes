@@ -2,6 +2,7 @@ var User = require('../models/user-model');
 
 // Action: index
 function indexUsers(req, res) {
+
   User.find({}, function (err, users) {
     if (err) {
       console.log('Could not get list of users:', err);
