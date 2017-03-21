@@ -14,11 +14,8 @@ chai.use(chaiHttp);
 // We can the extract the user ID from the `href` attribute using a regex.
 function getFirstUserIdFromUserListHTML(html) {
   var regEx = /\/users\/[0-9a-f]+/;
-  console.log('REGEX: ', regEx);
   var result = regEx.exec(html)[0];
-  console.log('RESULT: ', result);
   var pathElements = result.split('/');
-  console.log('pathElements: ', pathElements);
 
   return pathElements[2];
 }
