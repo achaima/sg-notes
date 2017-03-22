@@ -1,0 +1,27 @@
+<% if (user) { %>
+  <p>First name: <%= user.firstName %></p>
+  <p>Last name: <%= user.lastName %></p>
+  <p>Email: <%= user.email %></p>
+  <form method="post" action="/users/<%= user.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button>
+    <a href="/users/<%= user.id %>/edit">Edit</a>
+  </form>
+  <h2>Books</h2>
+  <a href="../books/new">Add Book</a>
+  <ol>
+    <% for (var i = 0; i < user.books.length; i++) { %>
+      <li>
+        <%= user.books[i].title %> <em>by <%= user.books[i].author %></em>
+        <form method="post" action="/books/<%= user.books[i].id %>">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="userId" value="<%= user.id %>">
+          <button>Delete</button>
+          <a href="/books/<%= user.books[i].id %>/edit">Edit</a>
+        </form>
+      </li>
+    <% } %>
+  </ol>
+<% } else { %>
+  <em>User not found. Soz.</em>
+<% } %>
