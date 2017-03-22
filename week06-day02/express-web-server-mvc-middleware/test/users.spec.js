@@ -7,6 +7,7 @@ var TestUtils = require('./test-utils');
 var expect = chai.expect;
 var request;
 
+
 chai.should();
 chai.use(chaiHttp);
 
@@ -100,7 +101,7 @@ describe('Users', function () {
         });
     });
     it('should create new user when input data is valid', function (done) {
-      var testFirstName = TestUtils.generateUniqueFirstName();
+      var testFirstName = TestUtils.generateUniqueString('firstName');
 
       request
         .post('/users')
