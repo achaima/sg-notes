@@ -61,6 +61,7 @@ function editBook(req, res) {
 // Action: update
 function updateBook(req, res) {
   var bookId = req.params.id;
+  // var userId = req.body.userId;
   var updatedBook = {
     title: req.body.title,
     author: req.body.author
@@ -68,12 +69,12 @@ function updateBook(req, res) {
 
   Book.findOneAndUpdate({ _id: bookId }, updatedBook, function (err) {
     if (err) {
-      console.log('Could not get existing user to update:', err.message);
+      console.log('Could not get existing book to update:', err.message);
       // ditto comment above re. keeping complexity to a minimum:
       res.status(404).send('Could not get existing book to update');
       return;
     }
-    res.redirect('/users');
+    res.redirect('/users' );
   });
 }
 
@@ -84,10 +85,10 @@ function destroyBook(req, res) {
   var userId = req.body.userId;
   //This is looking at the body which is the form in ejs
   //Look at input type etc
-  
+
   Book.deleteOne({ _id: bookId}, function (err) {
     if (err) {
-      console.log('Could not get user to delete:', err.message);
+      console.log('Could not get book to delete:', err.message);
       res.status(404).send('Could not get book to delete');
       return;
     }
