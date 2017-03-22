@@ -43,6 +43,7 @@ function createBook(req, res) {
 function editBook(req, res) {
   var bookId = req.params.id;
 
+
   Book.findOne({ _id: bookId }, function (err, book) {
     if (err) {
       console.log('Could not get book:', err);
@@ -61,7 +62,9 @@ function editBook(req, res) {
 // Action: update
 function updateBook(req, res) {
   var bookId = req.params.id;
-  // var userId = req.body.userId;
+  var userId = req.body.userId;
+
+
   var updatedBook = {
     title: req.body.title,
     author: req.body.author
@@ -74,7 +77,7 @@ function updateBook(req, res) {
       res.status(404).send('Could not get existing book to update');
       return;
     }
-    res.redirect('/users' );
+    res.redirect('/users/' + userId);
   });
 }
 
