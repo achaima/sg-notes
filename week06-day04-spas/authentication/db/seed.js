@@ -8,13 +8,65 @@ function seedData() {
   user.firstName = 'Freddie';
   user.lastName = 'Mercury';
   user.email = 'freddie@example.com';
-  user.save(function (err, userSaved) {
-    var book1 = new Book();
+  user.save = [];
 
     if (err) {
       console.log('could not create user: err:', err);
       process.exit(1);
     }
+
+
+  //   book1.save(function (err, book1Result) {
+  //      if (err) {
+  //        console.log('could not create book1: err:', err);
+  //        process.exit(1);
+  //      }
+  //      booksSaved.push(book1Result);
+  //      book2.save(function (err, book2Result) {
+  //        if (err) {
+  //          console.log('could not create book2: err:', err);
+  //          process.exit(1);
+  //        }
+  //        booksSaved.push(book2Result);
+  //        console.log('booksSaved:', booksSaved);
+  //        user.firstName = 'Freddie';
+  //        user.lastName = 'Mercury';
+  //        user.email = 'freddie@example.com';
+  //        user.books.push(booksSaved[0]._id);
+  //        user.books.push(booksSaved[1]._id);
+  //        user.save(function (err, userResult) {
+  //          if (err) {
+  //            console.log('could not create user: err:', err);
+  //            process.exit(1);
+  //          }
+  //          console.log('user saved:', userResult);
+  //          mongoose.connection.close();
+  //        });
+  //      });
+  //    });
+  //  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     book1.title = 'Great Expectations';
     book1.author = 'Chucky D';
