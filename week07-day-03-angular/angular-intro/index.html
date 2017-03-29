@@ -6,24 +6,46 @@
   <title>Angular into</title>
   <script src="bower_components/angular/angular.min.js" charset="utf-8"></script>
   <script src="app.js" charset="utf-8"></script>
+  <script src="controllers/home.controller.js" charset="utf-8"></script>
+
+  <style>
+  .isVisible {
+    color: pink;
+    }
+  .isNotVisible {
+  color:blue;
+    }
+  }
+  </style>
+
 </head>
-<body>
-  <h1>Angular FTW</h1>
+<body ng-controller="HomeController as home">
+  <h1>{{ home.title }}</h1>
 
-  <div>
-    Here is a sum: {{ 4+ 5 }}
-  </div>
+<p>Trainers:</p>
+  <ul>
+    <li ng-repeat="trainer in home.trainers track by $index">{{ trainer }}</li>
+  </ul>
 
-<div>
-  Is 7 odd? <strong>{{ (7 % 2 ===1) ? 'YES!' : 'Nope :-('}}</strong>
-</div>
 
-<div>
-  Is 8 odd? <strong>{{ (7 % 2 ===1) ? 'YES!' : 'Nope :-('}}</strong>
-</div>
+  <h2>Add a Trainer</h2>
+  <form>
+    <input type="text" ng-model="home.newTrainerName">
+    <button type="button" ng-click="home.addTrainer(newTrainer)">Add</button>
+  </form>
 
-<div>
+<p>
+    <a href="#" ng-click="home.showGonzo($event)">Show me gonzo!</a>
+    <a href="#" ng-click="home.hideGonzo()">Hide me gonzo!</a>
+    <a href="#" ng-click="home.toggleGonzo()">Toggle me gonzo!</a>
+    <span ng-class="{'isVisible':home.isGonzoVisible(), 'isNotVisible':!home.isGonzoVisible() }">Gonzo is visible</span>
+</p>
 
-</div>
+<img
+  src="http://vignette1.wikia.nocookie.net/muppet/images/3/31/Gonzo-TheVoice-2012.jpg"
+  height="200px"
+  ng-if="home.isGonzoVisible()"
+  ng-mouseover="home.hideGonzo()"/>
+
 </body>
 </html>
