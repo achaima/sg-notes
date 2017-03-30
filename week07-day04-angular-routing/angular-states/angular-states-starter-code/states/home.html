@@ -1,8 +1,7 @@
-<section ng-controller="HomeController as home"> 
+<section ng-controller="HomeController as home">
   <h1>This is the home page</h1>
 
   <p ng-repeat="(key, value) in home.instructors">
-    {{key}} - {{value}}
+    <strong>{{key}}</strong> {{value}}
   </p>
 </section>
-
