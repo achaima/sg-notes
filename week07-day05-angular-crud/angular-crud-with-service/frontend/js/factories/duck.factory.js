@@ -11,6 +11,19 @@ function DuckFactory(API_URL, $http) {
         method: 'GET',
         url: `${API_URL}/ducks/${id}`
       });
+    },
+    createOne: function (newDuck) {
+      return $http({
+        method: 'POST',
+        url: `${API_URL}/ducks`,
+        data: newDuck
+      });
+    },
+    deleteOne: function (duckId) {
+      return $http({
+        method: 'DELETE',
+        url: `${API_URL}/ducks/${duckId}`
+      });
     }
   };
 }
