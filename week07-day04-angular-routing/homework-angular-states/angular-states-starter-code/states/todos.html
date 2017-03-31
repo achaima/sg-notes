@@ -1,0 +1,28 @@
+<section ng-controller="AddToDoController as add">
+  <h1>{{ add.title }}</h1>
+
+  <ol>
+     <li ng-repeat="todo in add.todos track by $index">
+       <input type="checkbox"
+       ng-click="add.deleteTodo($index)">
+    {{todo}}
+     <input type="text"
+             ng-value="trainer"
+             ng-model="add.updatedTodos[$index]" 
+             placeholder="...">
+     <button type="button"
+             ng-click="add.updateTodos($index)">Edit</button>
+
+ </li>
+ </ol>
+
+
+ <h2>Add To do:</h2>
+  <form>
+    <input type="text" ng-model="add.newTodo">
+    <button type="button"
+            ng-click="add.addTodo()"
+            ng-disabled="add.isAddButtonDisabled()">Add</button>
+  </form>
+
+</section>
