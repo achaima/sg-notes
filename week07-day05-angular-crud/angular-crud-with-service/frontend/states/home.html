@@ -1,0 +1,10 @@
+<h2>All Ducks</h2>
+
+<ul>
+  <li class="duck" ng-repeat="duck in duck.allDucks">
+    <div>
+      <span>Name: </span>
+      <a ui-sref="show({duckId: duck._id})">{{ duck.name }}</a>
+    </div>
+  </li>
+</ul>

@@ -26,7 +26,10 @@
   <ul>
     <li ng-repeat="trainer in home.trainers track by $index">
       {{ trainer }}
-      <input type="text" ng-value="trainer" placeholder="edit trainer's name">
+      <input type="text"
+             ng-value="trainer"
+             ng-model="home.updatedTrainerNames[$index]"
+             placeholder="edit trainer's name">
       <button type="button" ng-click="home.updatedTrainer($index)">save name</button>
       <button type="button" ng-click="home.deleteTrainer($index)">delete trainer</button>
 
@@ -38,7 +41,7 @@
   <h2>Add a trainer</h2>
   <form>
     <input type="text" ng-model="home.newTrainerName">
-    <button type="button" ng-click="home.addTrainer()">Add</button>
+    <button type="button" ng-click="home.addTrainer()" ng-disabled="home.isAddButtonDisabled">Add</button>
   </form>
 
 
@@ -48,7 +51,7 @@
     <a href="#" ng-click="home.showGonzo($event)">Show me gonzo!</a>
     <a href="#" ng-click="home.hideGonzo()">Hide gonzo!</a>
     <a href="#" ng-click="home.toggleGonzo()">Toggle gonzo!</a>
-    <span ng-class="home.getGonzoVisibilityClass()">Gonzo is visible</span>
+    <span ng-class="home.getGonzoVisibilityClass()">Gonzo</span>
   </p>
 
   <img

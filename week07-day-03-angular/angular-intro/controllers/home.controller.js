@@ -56,16 +56,17 @@ function HomeController() {
   };
 
   controller.updatedTrainer = function(index) {
-    if (controller.newTrainerName) {
-      controller.updatedTrainer(index);
-      controller.newTrainerName.split(1, index, controller.updatedTrainer());
-    }
+    controller.trainers[index] = controller.updatedTrainerNames[index];
+  };
+
+  controller.isAddButtonDisbaled = function() {
+    return !controller.newTrainerName;
   };
 
   function init() {
     console.log('inside HomeController');
     controller.newTrainerName = '';
-    controller.updatedTrainer = [];
+    controller.updatedTrainerNames = [];
     controller.title = 'Home page';
     controller.trainers = ['Steve', 'Matt', 'Ollie', 'Niall'];
     controller.hideGonzo();
