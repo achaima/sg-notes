@@ -24,17 +24,17 @@ function TodoFactory (API_URL, $http) {
         method: 'DELETE',
         url: `${API_URL}/todos/${todoId}`
       });
+    },
+    editOne: function(editedTodo) {
+      return $http({
+        method: 'PATCH',
+        url: `${API_URL}/todos/${editedTodo._id}`,
+        data: editedTodo
+      });
     }
-
-
-
-
-
+    
   };
 }
-
-
-
 
 angular
   .module('TodoApp')

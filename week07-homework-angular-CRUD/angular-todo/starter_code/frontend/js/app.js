@@ -8,13 +8,13 @@ function MainRouter ($stateProvider, $urlRouterProvider) {
     url: '/todos/new',
     templateUrl: '/states/new.html'
   })
-  .state('edit', {
-    url: '/todos/:todoId/edit',
-    templateUrl: '/states/edit.html'
-  })
   .state('show', {
     url: '/todos/:todoId',
     templateUrl: '/states/show.html'
+  })
+  .state('edit', {
+    url: '/todos/:todoId/edit',
+    templateUrl: '/states/edit.html'
   });
 
   $urlRouterProvider.otherwise('/todos');
