@@ -1,7 +1,3 @@
-angular
-  .module('myApp', ['ui.router'])
-  .config(MainRouter);
-
 function MainRouter ($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 
@@ -27,3 +23,7 @@ function MainRouter ($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: '/states/secret.html'
     });
 }
+
+angular
+  .module('myApp', ['ui.router', 'firebase'])
+  .config(MainRouter);
