@@ -18,7 +18,7 @@ nav ul li {
   display: inline-block;
 }
 
-h1 {
+h1,h2 {
   color: white;
   font-family: "myFont";
   font-size: 40px;
@@ -71,6 +71,16 @@ button:hover {
 }
 
 .container {
+  margin-top: 20px;
+  background-color: rgba(186, 179, 199, 0.92);
+  border: #DCDCDC 1px solid;
+  width: 420px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgba(81, 81, 77, 0.45);
+}
+
+.containerComplete {
   margin-top: 20px;
   background-color: rgba(186, 179, 199, 0.92);
   border: #DCDCDC 1px solid;

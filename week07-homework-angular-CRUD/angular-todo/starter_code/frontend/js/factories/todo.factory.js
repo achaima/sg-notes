@@ -25,6 +25,29 @@ function TodoFactory (API_URL, $http) {
         url: `${API_URL}/todos/${todoId}`
       });
     },
+    // markOneComplete: function(todoId) {
+    //   var data = {
+    //     isComplete: true
+    //   };
+    //   return $http({
+    //     method: 'PATCH',
+    //     url: `${API_URL}/todos/${todoId}`,
+    //     data: data
+    //   });
+    // },
+    //
+    // markOneIncomplete: function(todoId) {
+    //   var data = {
+    //     isComplete:
+    //   };
+    //   return $http({
+    //     method: 'PATCH',
+    //     url: `${API_URL}/todos/${todoId}`,
+    //     data: data
+    //   });
+    // },
+
+
     editOne: function(editedTodo) {
       return $http({
         method: 'PATCH',
@@ -32,7 +55,7 @@ function TodoFactory (API_URL, $http) {
         data: editedTodo
       });
     }
-    
+
   };
 }
 

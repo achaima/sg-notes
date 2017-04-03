@@ -2,7 +2,7 @@ function TodoController ($stateParams, $state, TodoFactory) {
   var controller = this;
 
   controller.getTodo = function() {
-     // $stateParams is like req.params - it finds the thing after the colon eg todo factory line 15
+     // $stateParams is like req.params - it finds the thing after the colon
     var todoId = $stateParams.todoId;
 
     TodoFactory.getOne(todoId).then(
@@ -29,6 +29,31 @@ function TodoController ($stateParams, $state, TodoFactory) {
     );
   };
 
+  // controller.markTodoComplete = function(todoId) {
+  //   console.log(`completeTodo(${todoId})`);
+  //   TodoFactory.markOneComplete(todoId).then(
+  //   function success(response) {
+  //     console.log('completed:', response);
+  //     $state.go('home');
+  //   },
+  //   function error(error) {
+  //     console.warn('Error completing todo:', error);
+  //   }
+  // );
+  // };
+  //
+  // controller.markTodoIncomplete = function(todoId) {
+  //   console.log(`completeTodo(${todoId})`);
+  //   TodoFactory.markOneIncomplete(todoId).then(
+  //   function success(response) {
+  //     console.log('incomplete:', response);
+  //     $state.go('home');
+  //   },
+  //   function error(error) {
+  //     console.warn('Error marking todo complete:', error);
+  //   }
+  // );
+  // };
 
   controller.deleteTodo = function(todoId) {
     console.log('deleteTodo(todoId)');

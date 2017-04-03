@@ -1,14 +1,27 @@
-<h1>TO DO:</h1>
+<!DOCTYPE html>
+<h2>To do:</h2>
 
 <button type="button" ui-sref="new" id="add">Add</button>
 
 <div class="container">
 <ul>
   <li class="item" ng-repeat="item in todo.allTodos">
-    <input class="checkbox" type="checkbox"  name="status" value="isComplete">
+    <input class="checkbox" type="checkbox" ng-if="!todo.isComplete">
     <a ui-sref="show({ todoId: item._id})"> {{ item.title }}</a>
-<button type="button" ng-click="todo.editTodo(item._id)">Edit</button>
+
+    <button type="button" ng-click="todo.editTodo(item._id)">Edit</button>
     <button type="button" ng-click="todo.deleteTodo(item._id)">Delete</button>
+  </li>
+</ul>
+</div>
+
+<h2>Complete:</h2>
+<div class="containerComplete">
+<ul>
+  <li class="item" ng-repeat="item in todo.allTodos">
+
+    <input class="checkbox" type="checkbox" ng-if="!todo.isComplete" >
+    <a ui-sref="show({ todoId:item._id})"> {{ item.title }}</a>
   </li>
 </ul>
 </div>
