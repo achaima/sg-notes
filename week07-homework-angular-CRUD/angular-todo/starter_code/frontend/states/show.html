@@ -1,8 +1,9 @@
 <h1>Show</h1>
 
 <section ng-init="todo.getTodo()">
-  <p>{{ todo.selectedTodo.todo.title }}</p>
+<div class="container">
+<p><strong>Action: </strong>{{ todo.selectedTodo.todo.title }}</p>
   <p>{{ todo.selectedTodo.todo.desc }}</p>
-  <p>{{ todo.selectedTodo.todo.isComplete }}</p>
-
+</div>
+<a ui-sref="home" class="back">Back</a>
 </section>

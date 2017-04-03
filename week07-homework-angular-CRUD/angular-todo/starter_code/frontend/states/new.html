@@ -1,26 +1,27 @@
 <h1>New</h1>
 
-
+<div class="containerEditandNew">
 <form ng-submit="todo.addTodo()">
-  <label for="new-todo-name">Title:</label>
+  <label for="new-todo-name"><p>To do:</p></label>
 
   <input type="text"
     name="title"
-    placeholder="name"
+    placeholder="To-do"
     id="new-todo-name"
     ng-model="todo.newTodo.title">
 
-  <label for="new-todo-description">Description:</label>
+  <label for="new-todo-description">Notes:</label>
   <input type="text"
         name="description"
-        placeholder="name"
+        placeholder="Notes"
         id="new-todo-description"
         ng-model="todo.newTodo.desc">
 
 
-  <div>
-    <input type="submit" value="Create" >
-  </div>
+
+    <input class="updateandCreate" type="submit" value="Create" >
 
 
 </form>
+</div>
+<a ui-sref="home" class="back">Back</a>

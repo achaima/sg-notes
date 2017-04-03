@@ -1,4 +1,114 @@
 
+@font-face {
+    font-family: "myFont";
+    src: url("/DK Joe Schmoe.ttf");
+}
+
+body {
+    background-image:url("/todobackground.jpg");
+    color: white;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;*/
+}
+
+
 nav ul li {
   display: inline-block;
+}
+
+h1 {
+  color: white;
+  font-family: "myFont";
+  font-size: 40px;
+  text-shadow: 2px 2px 4px #000000;
+  display: inline-block;
+  margin-right: 100px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+.item {
+  list-style-type: none;
+  margin-bottom: 40px;
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+  font-family: "myFont";
+  text-shadow: 2px 2px 3px #000000;
+}
+
+P {
+  color: white;
+  font-family: "myFont";
+  text-shadow: 1px 1px 1px #000000;
+}
+
+#add {
+  padding: 10px 25px;
+  background-color: green;
+  border: none;
+}
+button {
+    background-color: #008CBA;
+    color: black;
+    border-radius: 4px;
+    color: white;
+    box-shadow: none;
+    border: #007ea7 1px solid;
+}
+
+button:hover {
+    background-color: green;
+}
+
+
+.back {
+  margin-left: 15px;
+}
+
+.container {
+  margin-top: 20px;
+  background-color: rgba(186, 179, 199, 0.92);
+  border: #DCDCDC 1px solid;
+  width: 420px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgba(81, 81, 77, 0.45);
+}
+
+
+.containerEditandNew {
+  margin-top: 20px;
+  background-color: rgba(186, 179, 199, 0.92);
+  border: #DCDCDC 1px solid;
+  width: 550px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgba(81, 81, 77, 0.45);
+}
+label {
+  color: white;
+  font-family: "myFont";
+  text-shadow: 1px 1px 1px #000000;
+  display: inline-block;
+}
+
+input {
+  height: 10px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  display: inline-block;
+}
+
+.updateandCreate {
+  height: 25px;
+  padding: 1px 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  margin-left: 8px;
 }
