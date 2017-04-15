@@ -1,0 +1,16 @@
+<!DOCTYPE html> <html lang="en" ng-app="angularClock"> <head> <meta
+charset="UTF-8"> <meta name="viewport" content="width=device-width,
+initial-scale=1.0"> <link rel="stylesheet" href="css/main.css"/>
+
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="js/clock.controller.js"></script>
+
+  <title>Me clock</title>
+</head>
+<body ng-controller="clockController as clock">
+  <p>{{clock.date | date : "shortTime" : "+0100"}}</p>
+
+
+</body>
+</html>

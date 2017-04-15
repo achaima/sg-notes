@@ -1,4 +1,4 @@
-function AuthController($state, AuthFactory) {
+function AuthController($state, $http, AuthFactory) {
   var controller = this;
 
   controller.createUser = () => {
@@ -32,8 +32,6 @@ function AuthController($state, AuthFactory) {
     );
   };
 
-
-
   controller.signOut = () => {
     AuthFactory.$signOut();
     $state.go('home');
@@ -58,8 +56,8 @@ function AuthController($state, AuthFactory) {
   init();
 }
 
-AuthController.$inject = ['$state', 'AuthFactory'];
+// AuthController.$inject = ['$state', 'AuthFactory'];
 
 angular
   .module('myApp')
-  .controller('AuthController', AuthController);
+  .controller('AuthController', ['$state', '$http', 'AuthFactory', AuthController]);
