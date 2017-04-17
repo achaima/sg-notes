@@ -5,9 +5,11 @@ function clockController($timeout) {
     controller.date = new Date();
     $timeout(controller.tick, 1000);
   };
-
   controller.tick();
 }
+
+
+
 
 angular
     .module('angularClock')

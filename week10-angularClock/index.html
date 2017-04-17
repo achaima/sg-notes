@@ -1,6 +1,9 @@
-<!DOCTYPE html> <html lang="en" ng-app="angularClock"> <head> <meta
-charset="UTF-8"> <meta name="viewport" content="width=device-width,
-initial-scale=1.0"> <link rel="stylesheet" href="css/main.css"/>
+<!DOCTYPE html> <html lang="en" ng-app="angularClock">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css"/>
 
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="app.js"></script>
@@ -9,7 +12,31 @@ initial-scale=1.0"> <link rel="stylesheet" href="css/main.css"/>
   <title>Me clock</title>
 </head>
 <body ng-controller="clockController as clock">
-  <p>{{clock.date | date : "shortTime" : "+0100"}}</p>
+
+  <div class="col-md-6 col-md-offset-4">
+    <p class="time">{{ clock.date | date : "longDate" : "+0100" }}</p>
+  </div>
+
+
+<div class="col-md-6 col-md-offset-3">
+    <div class="clock-face">
+      <div class="second secondRotate">  </div>
+      <div class="minute minuteRotate">   </div>
+      <div class="hour hourRotate">   </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-md-offset-5">
+  <p class="time">{{ clock.date | date : "HH:mm" : "+0100" }}</p>
+</div>
+
+
+
+
+
+
+
+
 
 
 </body>
