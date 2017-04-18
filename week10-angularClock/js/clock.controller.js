@@ -1,11 +1,11 @@
-function clockController($interval){
+function ClockController($interval){
   var controller = this;
 
   controller.tick = function() {
     controller.date = new Date();
     controller.seconds = controller.date.getUTCSeconds();
     controller.minutes = controller.date.getUTCMinutes();
-    controller.hours = controller.date.getUTCHours() + '1';
+    controller.hours = controller.date.getUTCHours() + 1;
     //Set the time and add an hour as GMT is an hour behind
     controller.secondsHandAngle = controller.seconds * 6;
     controller.minutesHandAngle = controller.minutes * 6;
@@ -34,7 +34,9 @@ function clockController($interval){
   init();
 }
 
+ClockController.inject = ('$interval');
+
 
 angular
     .module('angularClock')
-    .controller('clockController', clockController);
+    .controller('ClockController', ClockController);

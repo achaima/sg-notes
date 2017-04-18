@@ -23,7 +23,7 @@ body {
   background-color: red;
   position: absolute;
   left: 50%;
-  top: 18%;
+  top: 16%;
   transform-origin: bottom;
 }
 .minutes-hand {
@@ -33,7 +33,7 @@ body {
   background-color: white;
   position: absolute;
   left: 50%;
-  top: 18%;
+  top: 16%;
   transform-origin: bottom;
   transition: all 2s linear
 }
@@ -44,7 +44,7 @@ body {
   background-color: white;
   position: absolute;
   left: 50%;
-  top: 23%;
+  top: 20%;
   transform-origin: bottom;
   transition: all 2s linear;
 }
