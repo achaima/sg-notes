@@ -1,81 +1,59 @@
 @font-face {
-  font-family: timeFont;
-  src: url(Solari.ttf);
+  font-family: digitalFont;
+  src: url('digital-7.ttf');
 }
 
-* {
-  background: #DDDDDD;
+body {
+  background: black
 }
-
-.time {
-  color: black;
-  font-family: timeFont;
-  display: inline-block;
-  font-size: 40px;
-  padding-top: 30px;
-}
-
 
 .clock-face {
-  width: 600px;
-  height: 600px;
-  border: 5px solid black;
+  width: 300px;
+  height: 300px;
+  border: 5px solid white;
   border-radius: 50%;
-  background:url('http://www.clker.com/cliparts/s/h/B/C/3/j/clock-with-minute-ticks-no-hands-hi.png') no-repeat center;
-  padding: 0 auto;
+  margin: 100px auto;
+  background: url('http://www.clker.com/cliparts/U/L/R/C/V/3/clock-with-minute-ticks-no-hands-md.png') no-repeat center;
 }
 
-.second {
-  height: 220px;
-   width: 5px;
-   border-radius: 20%;
-   background-color: red;
-   position: absolute;
-   left: 43.6%;
-   top: 14%;
-   transform-origin: bottom;
-
+.seconds-hand {
+  height: 100px;
+  width: 5px;
+  border-radius: 30%;
+  background-color: red;
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  transform-origin: bottom;
+}
+.minutes-hand {
+  height: 100px;
+  width: 6px;
+  border-radius: 20%;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  transform-origin: bottom;
+  transition: all 2s linear
+}
+.hours-hand {
+  height: 60px;
+  width: 5px;
+  border-radius: 20%;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 23%;
+  transform-origin: bottom;
+  transition: all 2s linear;
 }
 
-.minute {
-  height: 220px;
-   width: 5px;
-   border-radius: 20%;
-   background-color: black;
-   position: absolute;
-   left: 43.6%;
-   top: 14%;
-   transform-origin: bottom;
-}
-
-.hour {
-  height: 150px;
-   width: 8px;
-   border-radius: 30%;
-   background-color: black;
-   position: absolute;
-   left: 43.5%;
-   top: 26%;
-   transform-origin: bottom;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg)
-  }
-  100% {
-    transform: rotate(360deg)
-  }
-}
-
-.secondRotate {
-  animation: rotate 60s infinite steps(60);
-}
-
-.minuteRotate {
-  animation: rotate 3600s infinite steps(60);
-}
-
-.hourRotate {
-  animation: rotate 43200s infinite;
+.digital-time {
+  font-family: digitalFont;
+  color: white;
+  font-size: 50px;
+  margin-top: -100px;
+  margin-left: 35px;
+  width: 100px;
 }
