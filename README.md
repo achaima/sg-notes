@@ -1,1 +1,0 @@
-# sg-project-3
