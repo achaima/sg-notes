@@ -1,0 +1,30 @@
+{
+  "name": "unit-testing-angularjs-controller",
+  "version": "1.0.0",
+  "description": "A simple example of unit testing an AngularJS controller",
+  "main": "app.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcalthrop/unit-testing-angularjs-controller.git"
+  },
+  "author": "Matt Calthrop <mcalthrop@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcalthrop/unit-testing-angularjs-controller/issues"
+  },
+  "homepage": "https://github.com/mcalthrop/unit-testing-angularjs-controller#readme",
+  "dependencies": {
+    "angular": "^1.6.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.4",
+    "jasmine": "^2.5.3",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-spec-reporter": "0.0.31"
+  }
+}
