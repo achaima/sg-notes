@@ -26,24 +26,27 @@ describe('DuckController', () => {
   });
 
   describe('initialisation', () => {
-    xit('Should do a basic test', () => {
-      console.log('got inside the basic test');
-      httpBackend.flush();
-      console.log('in test: allDucks', controllerToTest.allDucks);
-    });
     it('should populate allDucks with correct data', () => {
       const testDucks = ['duck one', 'duck two'];
 
-
       httpBackend
-        .when('GET', `${API_URL}/ducks`)
+        .expect('GET', `${API_URL}/ducks`)
         .respond(testDucks);
       httpBackend.flush();
       expect(controllerToTest.allDucks).toEqual(testDucks);
-      console.log( 'controllerToTest.allDucks', controllerToTest.allDucks);
-
+      httpBackend.verifyNoOutstandingExpectation();
     });
   });
 
+
+  describe('editDuck()', () => {
+    it('should go to "edit" state with specific duckId', () => {
+      const testDuckId = 'quark';
+
+      controllerToTest.editDuck(testDuckId);
+      expect(mock$State.go).toHaveBeenCalledWith('edit', { duckId: testDuckId });
+
+    });
+  });
 
 });
