@@ -14,7 +14,7 @@ function DuckController($state, $stateParams, DuckFactory) {
     );
   };
 
-  controller.addDuck =() => {
+  controller.addDuck = () => {
     console.log('addDuck()');
     DuckFactory.createOne(controller.newDuck).then(
       (response) => {
@@ -42,7 +42,7 @@ function DuckController($state, $stateParams, DuckFactory) {
     $state.go('edit', { duckId });
   };
 
-  controller.updateDuck =() => {
+  controller.updateDuck = () => {
     DuckFactory.editOne(controller.selectedDuck.duck).then(
       (response) => {
         console.log('duck updated:', response);
@@ -53,14 +53,14 @@ function DuckController($state, $stateParams, DuckFactory) {
     );
   };
 
-  function init () {
-    console.log(controller);
+  function init() {
     controller.selectedDuck = undefined;
     controller.allDucks = [];
     controller.newDuck = {};
     controller.colors = ['red', 'green', 'blue'];
     DuckFactory.getAll().then(
       (response) => {
+        console.log('all ducks:', response.data);
         controller.allDucks = response.data;
       },
       (error) => {
@@ -71,6 +71,7 @@ function DuckController($state, $stateParams, DuckFactory) {
 
   init();
 }
+DuckController.$inject = ['$state', '$stateParams', 'DuckFactory'];
 
 angular
   .module('DuckApp')
