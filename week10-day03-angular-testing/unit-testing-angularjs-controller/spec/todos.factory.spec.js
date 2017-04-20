@@ -36,15 +36,19 @@ describe('TodosFactory', () => {
     });
   });
 
-  describe('clear whole todo list even when theres no values', () => {
-    it('clear the whole todo list', () => {
 
-      console.log(factoryToTest.list);
-      factoryToTest.clear();
-      console.log(factoryToTest.list, 'should be empty');
-      expect(factoryToTest.list).toEqual([]);
+    describe('clear whole pre populated todo list', () => {
+      it('clear the whole todo list', () => {
+        let list = ['buy shoes'];
+
+        factoryToTest.list = list;
+        console.log(factoryToTest.list, 'should contain one todo');
+        factoryToTest.clear();
+        console.log(factoryToTest.list, 'should be empty');
+        expect(factoryToTest.list).toEqual([]);
+      });
     });
-  });
+
 
 
 });
