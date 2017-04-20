@@ -55,7 +55,7 @@ describe('TodosController', () => {
 
       controllerToTest.inputText = inputText;
       controllerToTest.isSubmitButtonDisabled();
-      expect(controllerToTest.isSubmitButtonDisabled()).toEqual(true);
+      expect(controllerToTest.isSubmitButtonDisabled()).toBe(true);
     });
 
     it('should return false when there is input text', () => {
@@ -63,7 +63,7 @@ describe('TodosController', () => {
 
       controllerToTest.inputText = inputText;
       controllerToTest.isSubmitButtonDisabled();
-      expect(controllerToTest.isSubmitButtonDisabled()).toEqual(false);
+      expect(controllerToTest.isSubmitButtonDisabled()).toBe(false);
     });
   });
 
@@ -73,28 +73,16 @@ describe('TodosController', () => {
 
       controllerToTest.list = list;
       controllerToTest.isClearButtonDisabled();
-      expect(controllerToTest.isClearButtonDisabled()).toEqual(true);
+      expect(controllerToTest.isClearButtonDisabled()).toBe(true);
     });
     it('should return false when the controllers list is not clear', () => {
       const list = ['todo'];
 
       controllerToTest.list = list;
       controllerToTest.isClearButtonDisabled();
-      expect(controllerToTest.isClearButtonDisabled()).toEqual(false);
+      expect(controllerToTest.isClearButtonDisabled()).toBe(false);
     });
   });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

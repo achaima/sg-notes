@@ -10,45 +10,34 @@ describe('TodosFactory', () => {
     factoryToTest = TodosFactory;
   }));
 
-  describe('add an item to todo list', () => {
+  describe('add()', () => {
     it('should add an item to todo list', () => {
       const newTodoItem = 'go to the shop';
-      const otherTodoItem = 'buy milk';
+
       factoryToTest.add(newTodoItem);
-      factoryToTest.add(otherTodoItem);
-      console.log(factoryToTest.list);
       expect(factoryToTest.list).toContain(newTodoItem);
+    });
+    it('should add an item to end of todo list', () => {
+      const newTodoItem1 = 'buy milk';
+      const newTodoItem2 = 'buy bread';
+
+      factoryToTest.add(newTodoItem1);
+      factoryToTest.add(newTodoItem2);
+      expect(factoryToTest.list[factoryToTest.list.length-1]).toEqual(newTodoItem2);
     });
   });
 
 
-  describe('clear whole todo list', () => {
-    it('clear the whole todo list', () => {
+  describe('clear()', () => {
+    it('should clear the whole todo list', () => {
       const newTodoItem = 'buy milk';
       const otherTodoItem = 'go to the shop';
       factoryToTest.add(newTodoItem);
       factoryToTest.add(otherTodoItem);
 
-      console.log(factoryToTest.list, 'should two todos');
       factoryToTest.clear();
-      console.log(factoryToTest.list, 'should be empty');
       expect(factoryToTest.list).toEqual([]);
     });
   });
-
-
-    describe('clear whole pre populated todo list', () => {
-      it('clear the whole todo list', () => {
-        let list = ['buy shoes'];
-
-        factoryToTest.list = list;
-        console.log(factoryToTest.list, 'should contain one todo');
-        factoryToTest.clear();
-        console.log(factoryToTest.list, 'should be empty');
-        expect(factoryToTest.list).toEqual([]);
-      });
-    });
-
-
 
 });
