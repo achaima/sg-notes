@@ -1,51 +1,59 @@
 describe('DuckController', () => {
   let controllerToTest;
   let httpBackend;
-  let mock$State;
-  let mock$StateParams;
-  let testDuckId;
+  let mock$state;
+  let mock$stateParams;
   let API_URL;
+  const testDuckId = 'quirk';
+  const testDucks = ['Donald', 'Daffy'];
 
   beforeEach(() => {
     module('DuckApp');
     inject(($controller, $httpBackend, _API_URL_) => {
       API_URL = _API_URL_;
-      console.log('API_URL', API_URL);
       httpBackend = $httpBackend;
-      mock$State = {
+      mock$state = {
         go: jasmine.createSpy()
       };
-      mock$StateParams = {
+      mock$stateParams = {
         duckId: testDuckId
       };
       controllerToTest = $controller('DuckController', {
-        $stateParams: mock$StateParams,
-        $state: mock$State
+        $stateParams: mock$stateParams,
+        $state: mock$state
       });
+      httpBackend
+        .when('GET', `${API_URL}/ducks`)
+        .respond(testDucks);
     });
   });
 
   describe('initialisation', () => {
     it('should populate allDucks with correct data', () => {
-      const testDucks = ['duck one', 'duck two'];
-
       httpBackend
-        .expect('GET', `${API_URL}/ducks`)
-        .respond(testDucks);
+        .expect('GET', `${API_URL}/ducks`);
       httpBackend.flush();
       expect(controllerToTest.allDucks).toEqual(testDucks);
       httpBackend.verifyNoOutstandingExpectation();
     });
   });
 
-
   describe('editDuck()', () => {
-    it('should go to "edit" state with specific duckId', () => {
-      const testDuckId = 'quark';
-
+    it('should go to "edit" state with specified duckId', () => {
       controllerToTest.editDuck(testDuckId);
-      expect(mock$State.go).toHaveBeenCalledWith('edit', { duckId: testDuckId });
+      expect(mock$state.go).toHaveBeenCalledWith('edit', { duckId: testDuckId });
+    });
+  });
 
+  describe('deleteDuck()', () => {
+    it('should make API call to delete specified duck', () => {
+
+      httpBackend
+        .expect('DELETE', `${API_URL}/ducks/${testDuckId}`)
+        .respond({});
+      controllerToTest.deleteDuck(testDuckId);
+      httpBackend.flush();
+      httpBackend.verifyNoOutstandingExpectation();
     });
   });
 
