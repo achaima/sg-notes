@@ -57,4 +57,47 @@ describe('DuckController', () => {
     });
   });
 
+  describe('updateDuck()', () => {
+    it('should make API call to update duck with correct data', () => {
+      const testUpdatedDuck = {
+        _id: testDuckId
+      };
+
+      httpBackend
+        .expect('PATCH', `${API_URL}/ducks/${testDuckId}`, testUpdatedDuck)
+        .respond();
+      controllerToTest.selectedDuck = {
+        duck: testUpdatedDuck
+      };
+      controllerToTest.updateDuck();
+      httpBackend.flush();
+      httpBackend.verifyNoOutstandingExpectation();
+    });
+  });
+
+  describe('addDuck()', () => {
+    it('should make API call to add duck with correct data', () => {
+      const testDuckToAdd = {
+        name: 'Daisy'
+      };
+
+      httpBackend
+      .expect('POST', `${API_URL}/ducks`, testDuckToAdd)
+      .respond({});
+      controllerToTest.newDuck = testDuckToAdd;
+      controllerToTest.addDuck();
+      httpBackend.flush();
+      httpBackend.verifyNoOutstandingExpectation();
+    });
+    it('should go to "home" state on success', () => {
+      httpBackend
+      .when('POST', `${API_URL}/ducks`)
+      .respond({});
+      controllerToTest.addDuck();
+      httpBackend.flush();
+      expect(mock$state.go).toHaveBeenCalledWith('home');
+    });
+  });
+
+
 });
