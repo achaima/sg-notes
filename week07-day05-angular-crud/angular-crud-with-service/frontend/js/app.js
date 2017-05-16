@@ -10,7 +10,7 @@ function MainRouter ($stateProvider, $urlRouterProvider) {
     })
     .state('edit', {
       url: '/ducks/:duckId/edit',
-      templateUrl: '/states/new.html'
+      templateUrl: '/states/edit.html'
     })
     .state('show', {
       url: '/ducks/:duckId',
