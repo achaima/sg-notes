@@ -22,8 +22,8 @@ body {
   border-radius: 30%;
   background-color: red;
   position: absolute;
-  left: 50%;
-  top: 16%;
+  left: 49.8%;
+  top: 18.8%;
   transform-origin: bottom;
 }
 .minutes-hand {
@@ -32,8 +32,8 @@ body {
   border-radius: 20%;
   background-color: white;
   position: absolute;
-  left: 50%;
-  top: 16%;
+  left: 49.8%;
+  top: 18.8%;
   transform-origin: bottom;
   transition: all 2s linear
 }
@@ -43,8 +43,8 @@ body {
   border-radius: 20%;
   background-color: white;
   position: absolute;
-  left: 50%;
-  top: 20%;
+  left: 49.8%;
+  top: 23.8%;
   transform-origin: bottom;
   transition: all 2s linear;
 }
